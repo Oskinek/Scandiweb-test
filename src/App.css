@@ -1,5 +1,9 @@
 .app {
-  margin-top: 80px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
+  height: 100%;
+}
+html, body, #app,#app>div {
+  height: 100%;
+  overflow-x: hidden;
 }

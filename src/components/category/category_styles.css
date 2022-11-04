@@ -1,0 +1,16 @@
+.products-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  gap: 100px 50px;
+  margin-left: 105px;
+  margin-right: 105px;
+}
+.category-name {
+  line-height: 67.2px;
+  font-size: 42px;
+  text-transform: capitalize;
+  margin-left: 100px;
+  margin-top: 70px;
+  margin-bottom: 110px;
+}

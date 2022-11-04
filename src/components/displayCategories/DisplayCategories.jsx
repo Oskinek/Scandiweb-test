@@ -8,20 +8,20 @@ const GET_CATEGORIES = gql`
   }
   `
 ;
-function DisplayCategories() {
+function DisplayCategories(props) {
   const {loading,error,data} = useQuery(GET_CATEGORIES);
   const [category,setCategory] = useState(null);
   useEffect(() => {
-    if(data && data.categories) {
+    if(data && data.categories && category === null) {
       setCategory(data.categories[0].name)
+      props.liftStateUp(data.categories[0].name)
     }
-  },[data])
-
+  },[data,props,category])
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
   const currentCategory = event => {
     setCategory(event.currentTarget.id);
-    console.log(category);
+    props.liftStateUp(event.currentTarget.id);
   }
 
   return data.categories.map(({name}) => (

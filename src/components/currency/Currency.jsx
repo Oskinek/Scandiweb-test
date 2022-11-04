@@ -12,20 +12,22 @@ const GET_CURRENCIES = gql`
   }
   `
 ;
-function Currency() {
+function Currency(props) {
   const {loading,error,data} = useQuery(GET_CURRENCIES)
   const [currency, setCurrency] = useState(null);
   useEffect(() => {
     
-    if (data && data.currencies) {
+    if (data && data.currencies && currency === null) {
       setCurrency(data.currencies[0].symbol);
+      props.liftCurrencyStateUp(data.currencies[0].symbol);
     }
     
-  },[data]);
+  },[data,props,currency]);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
   const currentCurrency = event => {
     setCurrency(event.currentTarget.id);
+    props.liftCurrencyStateUp(event.currentTarget.id);
   }
   return <div className="currency">
     <div className="currency-dropdown-toggle">
