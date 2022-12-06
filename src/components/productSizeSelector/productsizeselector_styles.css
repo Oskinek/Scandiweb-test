@@ -1,0 +1,23 @@
+.product-sizes-container {
+  display: flex;
+  flex-direction: row;
+}
+.product-size {
+  display: flex;
+  margin-left: 10px;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1D1F22;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05rem;
+  color: #1D1F22;
+  cursor: pointer;
+}
+.product-sizes-view {
+  margin-top: 43px;
+}
+.product-size.active {
+  background-color: rgba(29, 31, 34, 1);
+  color: white;
+}

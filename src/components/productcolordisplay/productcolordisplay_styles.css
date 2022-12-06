@@ -1,0 +1,26 @@
+.cart-product-color-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.cart-product-color {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05rem;
+  color: #1D1F22;
+}
+.cart-attribute-name {
+  font-family: 'Raleway';
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 16px;
+}
+.cart-product-color.active {
+  box-sizing: border-box;
+  border: 2px solid #5ECE7B;
+}

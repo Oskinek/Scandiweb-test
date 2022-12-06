@@ -1,0 +1,27 @@
+.product-color-container {
+  display: flex;
+  flex-direction: row;
+}
+.product-color {
+  display: flex;
+  margin-left: 10px;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05rem;
+  color: #1D1F22;
+}
+.product-colors-view {
+  margin-top: 24px;
+}
+.attribute-name {
+  font-family: 'Roboto Condensed';
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.product-color.active {
+  box-sizing: border-box;
+  border: 2px solid #5ECE7B;
+}

@@ -1,0 +1,25 @@
+.cart-product-sizes-container {
+  display: flex;
+  flex-direction: row;
+}
+.cart-product-size {
+  display: flex;
+  margin-right: 8px;
+  font-size: 14px;
+  min-width: 24px;
+  height: 24px;
+  border: 1px solid #1D1F22;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05rem;
+  color: #1D1F22;
+  margin-bottom: 8px;
+  font-family: 'Source Sans Pro';
+}
+.cart-product-size.active {
+  background-color: rgba(29, 31, 34, 1);
+  color: white;
+}
+.cart-attribute-name {
+  font-size: 14px;
+}

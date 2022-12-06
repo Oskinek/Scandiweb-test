@@ -1,7 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect,useRef } from 'react';
 import {MdKeyboardArrowUp} from 'react-icons/md';
 import './currency_styles.css';
 import { useQuery,gql } from '@apollo/client';
+import {useSelector, useDispatch} from 'react-redux';
+import {changeCurrency} from '../../features/currencyselector/currencySelectorSlice';
+import {toggleState} from '../../features/currencytoggle/currencyToggleSlice';
+import {toggleFalse} from '../../features/currencytoggle/currencyToggleSlice';
 
 const GET_CURRENCIES = gql`
   query GetCurrencies {
@@ -12,29 +16,45 @@ const GET_CURRENCIES = gql`
   }
   `
 ;
-function Currency(props) {
+function Currency() {
+  const currency = useSelector((state) => state.currencySelector.symbol)
+  const toggle = useSelector((state) => state.currencyToggle.on)
+  const dispatch = useDispatch()
+  const wrapperRef = useRef(null)
+  function useOutside(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if(ref.current && !ref.current.contains(event.target)) {
+          toggleDropdownFalse()
+        }
+      }
+      document.addEventListener("mousedown", handleClickOutside)
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      };
+    },[ref])
+  }
+  useOutside(wrapperRef)
   const {loading,error,data} = useQuery(GET_CURRENCIES)
-  const [currency, setCurrency] = useState(null);
-  useEffect(() => {
-    
-    if (data && data.currencies && currency === null) {
-      setCurrency(data.currencies[0].symbol);
-      props.liftCurrencyStateUp(data.currencies[0].symbol);
-    }
-    
-  },[data,props,currency]);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
   const currentCurrency = event => {
-    setCurrency(event.currentTarget.id);
-    props.liftCurrencyStateUp(event.currentTarget.id);
+    dispatch(changeCurrency(event.currentTarget.id));
+    toggleDropdownFalse();
   }
-  return <div className="currency">
-    <div className="currency-dropdown-toggle">
+  function toggleCurrencyDropdown() {
+    dispatch(toggleState())
+  }
+  function toggleDropdownFalse() {
+    dispatch(toggleFalse())
+  }
+  return <div className="currency" ref={wrapperRef}>
+
+    <div className="currency-dropdown-toggle" onClick={toggleCurrencyDropdown}>
       <div className="current-currency">{currency}</div>
-      <div className="arrow"><MdKeyboardArrowUp/></div>
+      <div className={toggle===true ? 'arrow active' : 'arrow'}><MdKeyboardArrowUp/></div>
     </div>
-    <div className="dropdown">
+    <div className={toggle===true ? 'dropdown active' : 'dropdown'}>
       {data.currencies.map(({label,symbol}) => (
       <div className="label" id={symbol} key={label} onClick={currentCurrency}>{symbol} {label}</div>
       ))}

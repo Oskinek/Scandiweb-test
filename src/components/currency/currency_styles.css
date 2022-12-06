@@ -20,6 +20,7 @@
   opacity: 0;
   position: absolute;
   width: 115px;
+  z-index: -1000;
   top: -150px;
   transition: transform 200ms, opacity 300ms;
 }
@@ -30,10 +31,10 @@
   justify-content: center;
   width: 100%;
 }
-.currency:hover .arrow {
+.arrow.active {
   transform: rotate(180deg);
 }
-.currency:hover .dropdown {
+.dropdown.active {
   opacity: 1;
   transform: translate(0px,200px);
   box-shadow: 0px 0px 3px black;
@@ -53,4 +54,18 @@
 .arrow {
   margin-left: 3px;
   transition: transform 200ms;
+}
+.invisible-curtain {
+  display: none;
+  width: 2000px;
+  height: 2000px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: ' ';
+  background-color: transparent;
+}
+.invisible-curtain.active {
+  z-index: 900;
+  display: block;
 }
