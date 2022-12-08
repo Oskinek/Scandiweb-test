@@ -1,0 +1,31 @@
+.cart-slideshow {
+  display: flex;
+  position: relative;
+  max-height: 230px;
+}
+.cart-slideshow img {
+  width: 200px;
+  height: auto;
+}
+.cart-direction-button {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  background-color: rgb(204,204,204,0.4);
+  align-items: center;
+  bottom: 16px;
+  cursor: pointer;
+}
+.cart-direction-button img {
+  width: 24px;
+  height: 24px;
+}
+.cart-previous {
+  right: 48px;
+}
+.cart-next {
+  right: 16px;
+}
+.none {
+  display: none;
+}

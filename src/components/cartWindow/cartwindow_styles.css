@@ -10,6 +10,7 @@
   right: 72px;
   z-index: -20;
   transition: opacity 300ms ease-in;
+  cursor: default;
 }
 .on {
   opacity: 1;
@@ -30,6 +31,7 @@
   z-index: -10;
   top: 78px;
   left: 0px;
+  cursor: pointer;
 }
 .total-amount-container {
   display: flex;
@@ -88,6 +90,8 @@
   border: 1px solid rgba(29, 31, 34, 1);
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: black;
 }
 .checkout-button {
   display: flex;
@@ -97,6 +101,7 @@
   color: white;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .cart-window-container-empty {
   margin-left: 16px;
@@ -108,4 +113,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.cart-indicator {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  font-size:14px;
+  position: absolute;
+  top: 26px;
+  right: 178px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  color: white;
+  background-color: black;
+  cursor: default;
+}
+.cart-number {
+  position: absolute;
+  top: -4px;
 }

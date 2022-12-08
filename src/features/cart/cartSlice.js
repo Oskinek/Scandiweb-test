@@ -29,10 +29,6 @@ export const cartSlice = createSlice({
       localStorage.setItem('cart', JSON.stringify(state.cart))
       window.dispatchEvent(new Event("storage"))
     },
-    removeItem(state) {
-      localStorage.clear()
-      window.dispatchEvent(new Event("storage"))
-    },
     addQuantity(state,action) {
       const storageCart = JSON.parse(localStorage.getItem('cart'))
       state.cart = storageCart
@@ -59,7 +55,6 @@ export const cartSlice = createSlice({
 })
 export const {
   addItem,
-  removeItem,
   addQuantity,
   decreaseQuantity
 } = cartSlice.actions;

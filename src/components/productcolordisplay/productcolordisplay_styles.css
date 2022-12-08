@@ -1,10 +1,10 @@
-.cart-product-color-container {
+.window-cart-product-color-container {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
 }
-.cart-product-color {
+.window-cart-product-color {
   display: flex;
   width: 16px;
   height: 16px;
@@ -12,15 +12,16 @@
   align-items: center;
   letter-spacing: 0.05rem;
   color: #1D1F22;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
-.cart-attribute-name {
+.window-cart-attribute-name {
   font-family: 'Raleway';
   font-weight: 400;
   font-size: 14px;
   margin-bottom: 8px;
   line-height: 16px;
 }
-.cart-product-color.active {
-  box-sizing: border-box;
+.window-cart-product-color.active {
   border: 2px solid #5ECE7B;
 }

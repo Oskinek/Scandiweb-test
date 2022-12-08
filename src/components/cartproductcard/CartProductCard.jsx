@@ -22,7 +22,6 @@ function CartProductCard(props) {
   }
   function addingQuantity() {
     dispatch(addQuantity(props))
-    console.log(props.quantity)
   }
   function decreasingQuantity() {
     dispatch(decreaseQuantity(props))

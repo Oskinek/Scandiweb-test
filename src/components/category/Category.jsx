@@ -19,6 +19,13 @@ function Category() {
               symbol
             }
           }
+          attributes {
+            name
+            type
+            items {
+              value
+            }
+          }
         }
       }
     }

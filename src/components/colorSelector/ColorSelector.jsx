@@ -8,7 +8,6 @@ class ColorSelector extends React.Component {
   }
   componentDidMount() {
     if(this.props.color===null) {
-      console.log(this.props.attribute.items[0].value)
       this.props.liftColorStateUp(this.props.attribute.items[0].value)
     }
   }

@@ -8,7 +8,6 @@ import ColorSelector from '../colorSelector/ColorSelector.jsx'
 import NavBar from '../navbar/NavBar.jsx'
 import {useSelector,useDispatch} from 'react-redux'
 import {addItem} from '../../features/cart/cartSlice'
-import {removeItem} from '../../features/cart/cartSlice'
 
 const GET_PRODUCTS = gql`
 query GetProducts($title: String!) {
@@ -46,9 +45,6 @@ function ProductDetails() {
   const [color,setColor] = useState(null)
   const [attributes,setAttributes] = useState(null)
   const {id} = useParams();
-  function deletecart() {
-    dispatch(removeItem())
-  } 
   function addItemToCart() {
     dispatch(addItem({product, cartAttributes,color}))
   }
@@ -114,7 +110,7 @@ function ProductDetails() {
             <Attribute key={id} type={attribute.type} attribute={attribute}/>
             ))}
           <div className="price-details-container">
-            <div className="attribute-name" onClick={deletecart}>Price:</div>
+            <div className="attribute-name">Price:</div>
             <div className="price-details">{currencySymbol}{amount}</div>
           </div>
           <div className="add-to-cart-button-details" onClick={addItemToCart}>add to cart</div>

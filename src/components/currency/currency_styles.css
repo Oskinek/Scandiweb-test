@@ -5,6 +5,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .current-currency {
   line-height: 45px;

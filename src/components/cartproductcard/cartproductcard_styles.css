@@ -30,6 +30,7 @@
 .quantity-container img {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 .cart-window-product-info-container {
   overflow: scroll;

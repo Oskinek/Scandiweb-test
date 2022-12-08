@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import CartProductCard from '../cartproductcard/CartProductCard.jsx'
 import {useSelector} from 'react-redux'
 import './cartwindow_styles.css';
@@ -54,6 +55,9 @@ function CartWindow(props) {
   }
   return(
     <span>
+      <div className="cart-indicator">
+        <div className="cart-number">{overallQuantity}</div>
+        </div>
       <div className={props.cartIsOn === true ? 'cart-window on' : 'cart-window'}>
         <div className="cart-window-container">
           <div className="cart-header-container">
@@ -70,7 +74,7 @@ function CartWindow(props) {
             <div className="total-amount">{currency}{totalAmount}</div>
           </div>
           <div className="buttons-container">
-            <div className="view-button">view bag</div>
+            <Link to={'/cart'} className="view-button">view bag</Link>
             <div className="checkout-button">check out</div>
           </div>
         </div>

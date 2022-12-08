@@ -19,11 +19,11 @@ class ProductSizeDisplay extends React.Component {
   }
   render() {
     return(
-      <div className="cart-product-sizes-view">
-        <div className="cart-attribute-name">{this.props.attribute.name}:</div>
-        <div className="cart-product-sizes-container">
+      <div className="window-cart-product-sizes-view">
+        <div className="window-cart-attribute-name">{this.props.attribute.name}:</div>
+        <div className="window-cart-product-sizes-container">
           {this.props.attribute.items.map((attribute) =>(
-            <div className={this.state.sizeState === attribute.value ? 'cart-product-size active' : 'cart-product-size'} key={attribute.name+attribute.value} id={attribute.value}>{attribute.value}</div>
+            <div className={this.state.sizeState === attribute.value ? 'window-cart-product-size active' : 'window-cart-product-size'} key={attribute.name+attribute.value} id={attribute.value}>{attribute.value}</div>
           ))}
         </div>
 

@@ -10,6 +10,8 @@
   justify-content: center;
   align-items: center;
   letter-spacing: 0.05rem;
+  box-sizing: border-box;
+  border: 1px solid black;
   color: #1D1F22;
 }
 .product-colors-view {
@@ -22,6 +24,5 @@
   margin-bottom: 8px;
 }
 .product-color.active {
-  box-sizing: border-box;
   border: 2px solid #5ECE7B;
 }
